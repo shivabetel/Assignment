@@ -1,0 +1,34 @@
+.card{
+    display: flex;
+    flex: auto;
+    margin: 1em;
+    flex-direction: column;
+    padding: 0.5em;
+    border: 1px solid #D7D7D7;
+    box-shadow: 1px 1px 6px 0px #D7D7D7;
+}
+
+.card .authorCon,
+.card .summaryCon{
+    font-size: 0.75em;
+    color: #959595;
+}
+.card .authorCon{
+    border-top: 1px solid #D7D7D7;
+}
+.card .titleCon{
+    font-weight: bold;
+}
+.card .titleCon,
+.card .authorCon,
+.card .summaryCon{
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+@media (min-width: 767px) {
+  .card{
+    width: 45%;
+    max-width: 45%;
+  }
+}
