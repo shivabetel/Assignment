@@ -7,7 +7,10 @@ import './search.css'
 const DEBOUNCE_TIME = 500
 let debounceEvent = null;
 const Search = (props) => {
-    const [userInput, setUserInput] = useState();
+    const [userInput, setUserInput] = useState({
+        title: '',
+        id: ''
+    });
     const [suggestions, setSuggestions] = useState();
 
 
@@ -22,15 +25,20 @@ const Search = (props) => {
 
 
     const onSuggestionSelection = (suggestedItem) => {
-        setUserInput(suggestedItem['title'])
+        setUserInput({
+            ...suggestedItem
+        })
     }
 
     const onSearch = async () => {
         const { search } = props;
         search({
-            searchQuery: userInput
+            id: userInput['id']
         })
-        setUserInput('');
+        setUserInput({
+            title: '',
+            id: ''
+        });
         
     }
     const onChange = (value) => {
@@ -47,7 +55,7 @@ const Search = (props) => {
             <div className="searchInnerCon">
                 <div className="searchBox">
                     <div>
-                        <AutoComplete value={userInput}
+                        <AutoComplete value={userInput['title']}
                             onChange={onChange}
                             suggestions={suggestions} 
                             onSuggestionSelection={onSuggestionSelection}/>

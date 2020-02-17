@@ -18,8 +18,7 @@ const searchBooks = async (inputObj = {}) => {
     let apiPath = apiList['apis']['searchBooks']['route']
    try{
     const httpLib = new HttpLib()
-    response = await httpLib.get(`${apiPath}?searchQuery=${inputObj['searchQuery']}&numberOfItems=${inputObj['noOfRecords']}`, {});
-    console.log("response",response)
+    response = await httpLib.get(`${apiPath}?id=${inputObj['id']}`);
     return new Promise(resolve => resolve(response))
 
    }catch(err){

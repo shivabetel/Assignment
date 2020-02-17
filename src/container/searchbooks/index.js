@@ -30,10 +30,10 @@ const SearchBooks = () => {
         </div>
     }
 
-    const _getResults = async ({ searchQuery = ''}) => {
+    const _getResults = async ({ id = ''}) => {
         setLoading(true);
         let response = await searchBooks({
-            searchQuery
+            id
         })
         response && setSearchResults([
             ...searchResults,
