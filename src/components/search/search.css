@@ -1,0 +1,57 @@
+.searchCon{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.searchCon .headerCon{
+  margin: 1em 0;
+}
+
+.searchCon .headerCon .headerText{
+    font-size: 18px;
+    font-weight: bold;
+}
+.searchCon .autoCompleteInputCon{
+    margin-bottom: 0.5em;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+
+    .searchCon .searchInnerCon{
+        width: 80%;
+        max-width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .searchCon .searchBox{
+        width: 40%;
+        max-width: 40%;
+        margin: 0 auto;
+        display: inline-block;
+      }
+      .searchCon .searchButton{
+        margin: 0 10px;
+        display: inline-block;
+      } 
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .searchCon .searchInnerCon{
+        width: 100%;
+        text-align: center;
+    }
+    .searchCon .searchBox{
+        width: 100%;
+      }
+      .searchCon .searchButton{
+          width: 100%;
+          text-align: center;
+          margin: 5px 0 0 0;
+      }
+}
