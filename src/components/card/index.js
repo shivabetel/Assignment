@@ -1,6 +1,9 @@
 import React from 'react';
 import './card.css'
 
+/*
+  card component to display title,suthor and summary info
+*/
 const Card = ({title= '', author='', summary = ''}) => {
   return (
       <div className="card">

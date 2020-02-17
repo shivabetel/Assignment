@@ -15,7 +15,9 @@ const Search = (props) => {
 
 
     useEffect(() => {
+        //debounceing the network api call which fetches all the suggestions
         debounceEvent = debounce( async (keyWord) => {
+            //calling api to get the suggestions
             const suggestionsRes = await getSuggestions({
                 keyWord
             });
@@ -30,6 +32,7 @@ const Search = (props) => {
         })
     }
 
+    //onClick event handler for submit button
     const onSearch = async () => {
         const { search } = props;
         search({
@@ -42,6 +45,7 @@ const Search = (props) => {
         setSuggestions([]);
         
     }
+    //onChange event handler passing as prop to autocomplete
     const onChange = (value) => {
         setUserInput(value)
         debounceEvent(value)

@@ -2,6 +2,10 @@ import React from 'react';
 import Card from '../card';
 import './search-result.css';
 
+/**
+ * component to show the search results
+ */
+
 const SearchResults = props => {
     const { searchResults = [] } = props
 

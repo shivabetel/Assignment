@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './autocomplete.css'
-
+/*
+  AutoComplete component
+*/
 const AutoComplete = props => {
 
     const [showSuggestions, setShowSuggestions] = useState(false)
@@ -12,13 +14,15 @@ const AutoComplete = props => {
        onChange(value);
     }
 
+    //event handler to handle selected suggestion items
     const handleSuggestionSelection = (suggestion) => {
-        onSuggestionSelection(suggestion)
+        onSuggestionSelection(suggestion)//onSuggestionSelection is the parent event passed as prop
         setShowSuggestions(false)
         
     }
 
 
+    //function which return suggested component
     const _getSuggestedItems = () => {
         return <div className="suggestionCon">
             {
