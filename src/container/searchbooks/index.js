@@ -36,8 +36,9 @@ const SearchBooks = () => {
             id
         })
         response && setSearchResults([
+            
             ...searchResults,
-            ...response['summaries']
+            ...response['summaries'].filter(({id}) => searchResults.every(sumry => sumry['id'] !== id))
         ])
         setLoading(false);
     }
