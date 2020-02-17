@@ -40,7 +40,6 @@ class HttpLib {
             url: apiPath,
             ...defaultApiOptions(options)
         }).then((res) => {
-            console.log("network",res);
           return new Promise(resolve => resolve(dataToReturn(res)))
         })
         .catch(err => {

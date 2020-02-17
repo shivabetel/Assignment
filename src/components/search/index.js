@@ -39,6 +39,7 @@ const Search = (props) => {
             title: '',
             id: ''
         });
+        setSuggestions([]);
         
     }
     const onChange = (value) => {
