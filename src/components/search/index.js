@@ -10,6 +10,7 @@ const Search = (props) => {
     const [userInput, setUserInput] = useState();
     const [suggestions, setSuggestions] = useState();
 
+
     useEffect(() => {
         debounceEvent = debounce( async (keyWord) => {
             const suggestionsRes = await getSuggestions({
@@ -25,7 +26,12 @@ const Search = (props) => {
     }
 
     const onSearch = async () => {
-        //TODO logic to handle search
+        const { search } = props;
+        search({
+            searchQuery: userInput
+        })
+        setUserInput('');
+        
     }
     const onChange = (value) => {
         setUserInput(value)
@@ -48,7 +54,7 @@ const Search = (props) => {
                     </div>
                 </div>
                 <div className="searchButton">
-                    <button onClick={onSearch} type="button">{'Search'}</button>
+                    <button onClick={onSearch} type="button">{'Submit'}</button>
                 </div>
             </div>
         </div>
