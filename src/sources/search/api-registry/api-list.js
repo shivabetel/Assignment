@@ -5,10 +5,10 @@ export const apiList =
     {
         apis:{
             'searchBooks': {
-                route: 'http://localhost:3000/api/search'
+                route: '/api/search'
             },
             'suggestions': {
-               route: 'http://localhost:3000/api/suggestions'
+               route: '/api/suggestions'
             }
         }
         

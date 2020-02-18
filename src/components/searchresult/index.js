@@ -8,11 +8,11 @@ import './search-result.css';
 
 const SearchResults = props => {
     const { searchResults = [] } = props
-
+console.log("searchResults",searchResults)
     return (
-        <div className="resultCon">
+        <div data-testid="results" className="resultCon">
             {
-                searchResults.map(result => <Card author={result['author']}
+                searchResults.map(result => <Card key={result['id']} author={result['author']}
                                                    title={result['title']}
                                                    summary={result['summary']}/>)
             }

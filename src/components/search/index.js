@@ -11,12 +11,13 @@ const Search = (props) => {
         title: '',
         id: ''
     });
+    const [ error,setError ] = useState(false)
     const [suggestions, setSuggestions] = useState();
 
 
     useEffect(() => {
         //debounceing the network api call which fetches all the suggestions
-        debounceEvent = debounce( async (keyWord) => {
+        debounceEvent = debounce( async (keyWord) => {            
             //calling api to get the suggestions
             const suggestionsRes = await getSuggestions({
                 keyWord
@@ -32,8 +33,19 @@ const Search = (props) => {
         })
     }
 
+    const validate = () => {
+        if(userInput['title'] == ''){
+            setError("Required")
+            return false
+        }
+        return true;
+    }
+
     //onClick event handler for submit button
     const onSearch = async () => {
+        if(!validate()){
+            return
+        }
         const { search } = props;
         search({
             id: userInput['id']
@@ -48,6 +60,7 @@ const Search = (props) => {
     //onChange event handler passing as prop to autocomplete
     const onChange = (value) => {
         setUserInput(value)
+        setError('')
         debounceEvent(value)
     }
 
@@ -63,11 +76,13 @@ const Search = (props) => {
                         <AutoComplete value={userInput['title']}
                             onChange={onChange}
                             suggestions={suggestions} 
+                            required={Boolean(error)}
+                            errorText={error}
                             onSuggestionSelection={onSuggestionSelection}/>
                     </div>
                 </div>
                 <div className="searchButton">
-                    <button onClick={onSearch} type="button">{'Submit'}</button>
+                    <button data-testid="search-button" onClick={onSearch} type="button">{'Submit'}</button>
                 </div>
             </div>
         </div>

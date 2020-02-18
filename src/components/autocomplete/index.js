@@ -6,25 +6,25 @@ import './autocomplete.css'
 const AutoComplete = props => {
 
     const [showSuggestions, setShowSuggestions] = useState(false)
-    const { value, onChange = () => { }, suggestions = [], onSuggestionSelection= () => {} } = props
+    const { value, onChange = () => { }, suggestions = [], onSuggestionSelection = () => { } , required=false, errorText} = props
 
 
     const onInputChange = (value) => {
-       setShowSuggestions(true);
-       onChange(value);
+        setShowSuggestions(true);
+        onChange(value);
     }
 
     //event handler to handle selected suggestion items
     const handleSuggestionSelection = (suggestion) => {
         onSuggestionSelection(suggestion)//onSuggestionSelection is the parent event passed as prop
         setShowSuggestions(false)
-        
+
     }
 
 
     //function which return suggested component
     const _getSuggestedItems = () => {
-        return <div className="suggestionCon">
+        return <div data-testid="suggestions" className="suggestionCon">
             {
                 suggestions.map(suggestion => <div onClick={() => handleSuggestionSelection(suggestion)} className="listItem">
                     <span>{suggestion['title']}</span>
@@ -32,13 +32,15 @@ const AutoComplete = props => {
             }
         </div>
     }
-
     return (
-        <div className="autoCompleteInputCon">
+        <div data-testid="autocomplete" className="autoCompleteInputCon">
             <input type="text"
+                className={errorText ? 'error': ""}
+                data-testid="autocomplete-input"
+                required={required}
                 value={value}
                 onChange={e => onInputChange(e.target.value)} />
-            {
+            {   
                 showSuggestions && _getSuggestedItems()
             }
         </div>

@@ -9,6 +9,9 @@
 .autoCompleteInputCon input:focus{
     outline: none;
 }
+.autoCompleteInputCon input.error{
+    border-color:  red;
+}
 .autoCompleteInputCon .suggestionCon{
     position: absolute;
     width: 100%;

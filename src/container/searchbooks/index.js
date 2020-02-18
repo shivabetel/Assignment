@@ -16,8 +16,8 @@ const SearchBooks = () => {
             flexWrap: 'wrap'
         }}>
             {
-                [1, 2].map(() => (
-                    <div style={{
+                [1, 2].map((index) => (
+                    <div key={index} style={{
                         margin: '1em',
                         padding: '0.5em',
                         border: '1px solid #D7D7D7',
@@ -48,6 +48,7 @@ const SearchBooks = () => {
         let response = await searchBooks({
             id
         })
+        console.log("response",response);
         response && setSearchResults([
 
             ...searchResults,
