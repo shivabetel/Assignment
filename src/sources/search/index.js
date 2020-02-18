@@ -6,12 +6,12 @@ import { getApiEnv } from '../../config'
  function which makes api call to get al the suggestions
 */
 const apiEnv = getApiEnv();
-const getSuggestions = async ({keyWord = ''}) => {
+const getSuggestions = async ({keyWord = '', noOfSuggestions=10}) => {
     let response = {}
     let apiPath = apiList['apis']['suggestions']['route']
    try{
     const httpLib = new HttpLib()
-    response = await httpLib.get(`${apiEnv}${apiPath}?keyWord=${keyWord}`, {});
+    response = await httpLib.get(`${apiEnv}${apiPath}?keyWord=${keyWord}&noOfSuggestions=${noOfSuggestions}`, {});
     return new Promise(resolve => resolve(response))
 
    }catch(err){
