@@ -9,7 +9,7 @@ The api for this UI is available on SearchBookAPIAssignment respoitory
 and returns back the titles for that summaries
 on select of the suggestion and submit, the corresponding, summary, title, Author will be added to the list of cards and 
 displayed on UI.
-Follwing keywords can be used for the autocomplete suggestions
+5. Follwing keywords can be used for the autocomplete suggestions
 "is your problems",
     "achieve take book",
     "life sentences book",
